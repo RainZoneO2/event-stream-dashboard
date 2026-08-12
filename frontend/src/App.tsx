@@ -19,7 +19,8 @@ function App() {
   };
 
   useEffect(() => {
-    loadEvents();
+    const interval = setInterval(loadEvents, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   const handlePublish = async () => {
