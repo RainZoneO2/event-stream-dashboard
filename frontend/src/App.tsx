@@ -15,7 +15,7 @@ function App() {
   const [payload, setPayload] = useState("");
 
   const loadEvents = () => {
-    fetch("http://localhost:8080/api/events")
+    fetch("/api/events")
       .then((res) => res.json())
       .then((data) => setEvents(data));
   };
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   const handlePublish = async () => {
-    await fetch("http://localhost:8080/api/events", {
+    await fetch("/api/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ type, payload }),
